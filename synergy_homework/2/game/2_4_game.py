@@ -8,7 +8,7 @@ print(f"\nПривет!\n\nДавай сыграем в игру \"Угадай 
 
 
 while attempts > 0:
-    user_number = input("\nВведи свой вариант числа: ")
+    user_number = input("\n\nВведи свой вариант числа: ")
 
     try:
         check_number = int(user_number)
@@ -17,12 +17,12 @@ while attempts > 0:
 
             if check_number < random_number:
                 attempts -= 1
-                print(f"\nТвоё число меньше загаданного.\nПопыток осталось всего: {attempts}.\n")
+                print(f"\nТвоё число меньше загаданного.\nПопыток осталось всего: {attempts}.")
             elif check_number > random_number:
                 attempts -= 1
-                print(f"\nТвоё число больше загаданного.\nПопыток осталось всего: {attempts}.\n")
+                print(f"\nТвоё число больше загаданного.\nПопыток осталось всего: {attempts}.")
             else:
-                print(f"\nЙей! Ты угадал! Это действительно число {user_number}!\nИ на угадывание у тебя ушло вот сколько попыток: {attempts}.")
+                print(f"\nЙей! Ты угадал! Это действительно число {user_number}!\nИ на угадывание у тебя ушло вот сколько попыток: {attempts}.\n")
                 break
 
         else:
@@ -31,9 +31,9 @@ while attempts > 0:
 
     except ValueError:
         attempts -= 1
-        print(f"\nНо ведь \"{user_number}\" не является целым числом.\nПопыток осталось всего: {attempts}.\n")
+        print(f"\nНо ведь \"{user_number}\" не является целым числом.\nПопыток осталось всего: {attempts}.")
 
     if attempts == 1:
-        print(f"Последняя попытка! Посмотри в {random_number-1} -- {random_number+1}")
+        print(f"Последняя попытка! Посмотри в {random_number-2} -- {random_number+4}")
     elif attempts == 0:
-        print(f"Игра окончена.\nИскомое число: {random_number}")
+        print(f"\n\nК сожалению на этом и попытки, и игра закончились.\nИскомое число: {random_number}\n")
