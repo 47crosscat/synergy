@@ -4,11 +4,11 @@ random_number = random.randint(1,100)
 attempts = 8
 
 # print(f"Случайное число: {random_number}")
-print(f"\nДобрый день!\n\nДавайте сыграем в игру \"Угадай число\".\nЧисло выбрано случайным образом в диапазоне от 1 до 100.\nЧисло попыток: {attempts}\n")
+print(f"\nПривет!\n\nДавай сыграем в игру \"Угадай число\".\n\nКомпьютер случайным образом выбрал число в диапазоне от 1 до 100.\nПравила такие: если ты не угадываешь, или вводишь число не из диапазона, или не число, или даже отправляешь пустоту -- число попыток уменьшается на одну, всего их {attempts}.\nУдачи!\n\nИтак, компьютер загадал число. ")
 
 
 while attempts > 0:
-    user_number = input("Введите свой вариант числа: ")
+    user_number = input("\nВведи свой вариант числа: ")
 
     try:
         check_number = int(user_number)
@@ -17,21 +17,23 @@ while attempts > 0:
 
             if check_number < random_number:
                 attempts -= 1
-                print(f"Ваше число меньше загаданного.\nКоличество оставшихся попыток: {attempts}.\n")
+                print(f"\nТвоё число меньше загаданного.\nПопыток осталось всего: {attempts}.\n")
             elif check_number > random_number:
                 attempts -= 1
-                print(f"Ваше число больше загаданного.\nКоличество оставшихся попыток: {attempts}.\n")
+                print(f"\nТвоё число больше загаданного.\nПопыток осталось всего: {attempts}.\n")
             else:
-                print(f"Ура! Это действительно число {user_number}!")
+                print(f"\nЙей! Ты угадал! Это действительно число {user_number}!\nИ на угадывание у тебя ушло вот сколько попыток: {attempts}.")
                 break
 
         else:
             attempts -= 1
-            print(f"Введите число в диапазоне от 1 до 100.\nКоличество оставшихся попыток: {attempts}.\n")
+            print(f"Введи число в диапазоне от 1 до 100.\nПопыток осталось всего: {attempts}.\n")
 
     except ValueError:
         attempts -= 1
-        print(f"\nВведённое значение \"{user_number}\" не является целым числом.\nКоличество оставшихся попыток: {attempts}.\n")
+        print(f"\nНо ведь \"{user_number}\" не является целым числом.\nПопыток осталось всего: {attempts}.\n")
 
-    if attempts == 0:
+    if attempts == 1:
+        print(f"Последняя попытка! Посмотри в {random_number-1} -- {random_number+1}")
+    elif attempts == 0:
         print(f"Игра окончена.\nИскомое число: {random_number}")
