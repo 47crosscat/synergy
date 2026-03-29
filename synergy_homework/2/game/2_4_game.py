@@ -1,10 +1,11 @@
 import random
 
 random_number = random.randint(1,100)
-attempts = 8
+max_attempts = 8
+attempts = max_attempts
 
-# print(f"Случайное число: {random_number}")
 print(f"\nПривет!\n\nДавай сыграем в игру \"Угадай число\".\n\nКомпьютер случайным образом выбрал число в диапазоне от 1 до 100.\nПравила такие: если ты не угадываешь, или вводишь число не из диапазона, или не число, или даже отправляешь пустоту -- число попыток уменьшается на одну, всего их {attempts}.\nУдачи!\n\nИтак, компьютер загадал число. ")
+# print(f"Компьютер загадал число: {random_number}")
 
 
 while attempts > 0:
@@ -22,7 +23,10 @@ while attempts > 0:
                 attempts -= 1
                 print(f"\nТвоё число больше загаданного.\nПопыток осталось всего: {attempts}.")
             else:
-                print(f"\nЙей! Ты угадал! Это действительно число {user_number}!\nИ на угадывание у тебя ушло вот сколько попыток: {attempts}.\n")
+                if max_attempts != attempts:
+                    print(f"\nЙей! Ты угадал! Это действительно число {user_number}!\nИ на угадывание у тебя ушло вот сколько попыток: {max_attempts-attempts+1}.\n")
+                else:
+                    print(f"\nВот это да! Ты угадал число {user_number} с первой попытки.\n")
                 break
 
         else:
